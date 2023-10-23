@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <!-- Metatags required by bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block styles %}
+      <!-- Bootstrap CSS -->
+      {{ bootstrap.load_css() }}
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <!-- Page content -->
+    {% block content %}{% endblock %}
+
+    {% block scripts %}
+      <!-- Javascript (optional) -->
+      {{ bootstrap.load_js() }}
+    {% endblock %} 
+  </body>
+</html>
