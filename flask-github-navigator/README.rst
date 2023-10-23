@@ -11,3 +11,9 @@ The supported browser-based workflow is:
     - owner
     - last commit
   #. Click on desired repo name; browser will be redirected to the GitHub repository
+
+Useful Tidbits
+--------------
+
+- flask_bootstrap module for easy beautification
+  - needs templates to be in templates/ dir under project root
