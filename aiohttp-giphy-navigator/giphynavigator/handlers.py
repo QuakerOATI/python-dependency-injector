@@ -10,9 +10,11 @@ from .containers import Container
 async def index(
     request: web.Request,
     search_service: SearchService = Provide[Container.search_service],
-) -> Any:
-    query = request.query.get("query", "Dependency Injector")
-    limit = int(request.query.get("limit", 10))
+    default_query: str = Provide[Container.config.default.query],
+    default_limit: int = Provide[Container.config.default.limit.as_int()],
+) -> web.Response:
+    query = request.query.get("query", default_query)
+    limit = int(request.query.get("limit", default_limit))
 
     gifs = await search_service.search(query, limit)
 

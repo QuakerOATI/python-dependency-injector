@@ -1,2 +1,6 @@
 giphy:
   request_timeout: 10
+
+default:
+  limit: 10
+  query: "Momma"
