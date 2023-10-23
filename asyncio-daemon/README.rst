@@ -26,4 +26,6 @@ Project creation
 Architecture
 ------------
 
-The app consists of a series of :code:`Monitors` scheduled and managed by a :code:`Dispatcher`.
+The app consists of a series of :code:`Monitor` objects scheduled and managed by a :code:`Dispatcher`.  Concrete :code:`Monitor` instances must be instantiated from a subclass of the abstract :code:`Monitor` class.
+
+- For example: :code:`HttpMonitor` extends :code:`Monitor`, verifying the availability of a Web service by sending an HTTP request to a specified URL (the actual request is delegated to an :code:`HttpClient`).

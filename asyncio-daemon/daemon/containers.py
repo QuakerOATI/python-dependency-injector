@@ -2,7 +2,7 @@ import logging
 import sys
 
 from dependency_injector import containers, providers
-from . import dispatcher
+from . import dispatcher, http
 
 
 class Container(containers.DeclarativeContainer):
@@ -14,6 +14,8 @@ class Container(containers.DeclarativeContainer):
         level=config.log.level,
         format=config.log.format,
     )
+
+    http_client = providers.Factory(http.HttpClient)
 
     dispatcher = providers.Factory(
         dispatcher.Dispatcher,
