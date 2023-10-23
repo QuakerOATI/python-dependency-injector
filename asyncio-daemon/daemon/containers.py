@@ -2,7 +2,7 @@ import logging
 import sys
 
 from dependency_injector import containers, providers
-from . import dispatcher, http
+from . import dispatcher, http, monitors
 
 
 class Container(containers.DeclarativeContainer):
@@ -17,9 +17,15 @@ class Container(containers.DeclarativeContainer):
 
     http_client = providers.Factory(http.HttpClient)
 
+    example_monitor = providers.Factory(
+        monitors.HttpMonitor,
+        http_client=http_client,
+        options=config.monitors.example,
+    )
+
     dispatcher = providers.Factory(
         dispatcher.Dispatcher,
         monitors=providers.List(
-            # TODO: Add monitors
+            example_monitor,
         ),
     )

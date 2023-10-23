@@ -40,7 +40,7 @@ class HttpMonitor(Monitor):
         )
 
         end = time.time()
-        duration = start - end
+        duration = end - start
 
         self.logger.info(
             "Check:\n"
