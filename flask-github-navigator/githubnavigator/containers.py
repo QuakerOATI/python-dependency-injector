@@ -5,6 +5,8 @@ from . import services
 
 
 class Container(containers.DeclarativeContainer):
+    wiring_config = containers.WiringConfiguration(modules=[".views"])
+
     config = providers.Configuration(yaml_files=["config.yaml"])
 
     github_client = providers.Factory(
