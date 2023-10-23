@@ -4,13 +4,9 @@ from . import giphy, services
 
 
 class Container(containers.DeclarativeContainer):
-    config = providers.Configuration(yaml_files=["config.yaml"])
+    wiring_config = containers.WiringConfiguration(modules=[".handlers"])
 
-    giphy_client = providers.Factory(
-        giphy.GiphyClient,
-        api_key=config.giphy.api_key,
-        timeout=config.giphy.request_timeout,
-    )
+    config = providers.Configuration(yaml_files=["config.yaml"])
 
     giphy_client = providers.Factory(
         giphy.GiphyClient,

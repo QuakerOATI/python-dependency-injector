@@ -5,7 +5,7 @@ from typing import Any
 class GiphyClient:
     """Minimal client for the giphy API."""
 
-    API_URL = "https://api/giphy.com/v1"
+    API_URL = "https://api.giphy.com/v1"
 
     def __init__(self, api_key, timeout) -> None:
         self._api_key = api_key
