@@ -3,3 +3,4 @@ aiohttp
 pyyaml
 pytest-aiohttp
 pytest-cov
+pytest-asyncio
