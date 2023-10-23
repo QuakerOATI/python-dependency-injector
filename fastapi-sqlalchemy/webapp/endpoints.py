@@ -35,7 +35,8 @@ def add(user_service: UserService = Depends(Provide[Container.user_service])):
 @router.delete("/users/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
 @inject
 def remove(user_id: int,
-           user_service: Depends(Provide[Container.user_service])):
+           user_service: UserService = Depends(
+               Provide[Container.user_service])):
     try:
         user_service.delete_user_by_id(user_id)
     except NotFoundError:
